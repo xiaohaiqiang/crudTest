@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhq.springboot.mapper.UserMapper">
+    <resultMap type="com.xhq.springboot.model.User" id="UserResult">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="password" column="password"/>
+        <result property="roleName" column="role_name"/>
+    </resultMap>
+
+    <select id="login" parameterType="com.xhq.springboot.model.User" resultMap="UserResult">
+        select * from ssm_user where user_name = #{userName} and password = #{password}
+    </select>
+
+</mapper>
